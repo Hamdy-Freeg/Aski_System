@@ -78,6 +78,7 @@ void DataBaseManager::save_new_question(const Question &question) {
             << question.sender_id << ','
             << question.receiver_id << ','
             << question.text << ','
+            << question.answer_text << ','
             << question.is_anonymous;
 
         out.close();        
@@ -101,13 +102,14 @@ vector<Question> DataBaseManager::load_qustions() {
             stringstream ss(line);
             string id, parent_question_id,
              sender_id, receiver_id, 
-             text, is_anonymous;
+             text, answer_text, is_anonymous;
 
             getline(ss, id, ',');
             getline(ss, parent_question_id, ',');
             getline(ss, sender_id, ',');
             getline(ss, receiver_id, ',');
             getline(ss, text, ',');
+            getline(ss, answer_text, ',');
             getline(ss, is_anonymous, ',');
 
 
@@ -118,6 +120,7 @@ vector<Question> DataBaseManager::load_qustions() {
             new_q.sender_id = stoi(sender_id);
             new_q.receiver_id = stoi(receiver_id);
             new_q.text = text;
+            new_q.answer_text = answer_text;
             new_q.is_anonymous = stoi(is_anonymous);
             
             questions.push_back(new_q);
@@ -145,6 +148,7 @@ void DataBaseManager::save_questions(const vector<Question> &all_questions) {
             << question.sender_id << ','
             << question.receiver_id << ','
             << question.text << ','
+            << question.answer_text << ','
             << question.is_anonymous;
 
         }
