@@ -10,7 +10,7 @@ The project is structured following modern C++ best practices, separating interf
 ```text
 .
 ├── CMakeLists.txt        # CMake build configuration file
-├── main.cpp              
+|
 ├── include/              # Header files (.h)
 │   ├── AskiSystem.h      # Main system coordinator and menu loop
 │   ├── DatabaseManager.h # Handles I/O operations for CSV files
