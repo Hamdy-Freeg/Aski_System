@@ -21,11 +21,12 @@ private:
     void sign_up();
     void logout();
 
-    void print_comming_questions();
+    void print_coming_questions();
     void print_quesions_from_me();
     void answer_question();
-    void delete_quesion();
+    void delete_question();
     void ask_question();
+    void list_system_users();
     void show_feed();
     void log_out();
 

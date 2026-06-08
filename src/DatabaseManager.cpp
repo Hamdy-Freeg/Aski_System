@@ -13,6 +13,7 @@ void DataBaseManager::save_new_user(const User &user) {
         out << user.id << ','
             << user.username << ','
             << user.password << ','
+            << user.name << ','
             << user.email << ','
             << user.allow_anonymous_question << ',' 
             << "\n";
@@ -50,11 +51,11 @@ vector<User> DataBaseManager::load_users() {
 
 
             new_user.id = stoi(id);
-            new_user.username = name;
+            new_user.username = username;
             new_user.password = password;
             new_user.name = name;
             new_user.email = email;
-            new_user.email = stoi(allow_anonymous_question);
+            new_user.allow_anonymous_question = stoi(allow_anonymous_question);
 
 
             users.push_back(new_user);
@@ -79,7 +80,7 @@ void DataBaseManager::save_new_question(const Question &question) {
             << question.receiver_id << ','
             << question.text << ','
             << question.answer_text << ','
-            << question.is_anonymous;
+            << question.is_anonymous << "\n";
 
         out.close();        
     } else {
@@ -90,7 +91,7 @@ void DataBaseManager::save_new_question(const Question &question) {
 }
 
 
-vector<Question> DataBaseManager::load_qustions() {
+vector<Question> DataBaseManager::load_questions() {
     vector<Question> questions;
 
     ifstream in("data/questions.csv");
@@ -149,7 +150,7 @@ void DataBaseManager::save_questions(const vector<Question> &all_questions) {
             << question.receiver_id << ','
             << question.text << ','
             << question.answer_text << ','
-            << question.is_anonymous;
+            << question.is_anonymous << "\n";
 
         }
         out.close();

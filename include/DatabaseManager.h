@@ -13,6 +13,6 @@ public :
 
     void save_questions(const vector<Question> &all_questions);
     void save_new_question(const Question &question);
-    vector<Question> load_qustions();
+    vector<Question> load_questions();
 
 };
